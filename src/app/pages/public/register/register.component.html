@@ -1,0 +1,92 @@
+<section id="wrapper">
+  <div class="login-register">
+    <div class="login-box card">
+      <div class="card-body">
+        <form class="form-horizontal form-material"
+              [formGroup]="form"
+              (ngSubmit)="signUp()"
+        >
+          <h3 class="box-title m-b-20">Crear cuenta</h3>
+          <div class="form-group has-danger">
+            <div class="col-xs-12">
+              <input class="form-control"
+                     type="text"
+                     placeholder="Nombre"
+                     formControlName="username"
+              >
+              <div class="form-control-feedback" *ngIf="form.get('username').errors && form.get('username').touched">
+                Campo requerido
+              </div>
+            </div>
+          </div>
+          <div class="form-group has-danger">
+            <div class="col-xs-12">
+              <input class="form-control"
+                     type="email"
+                     placeholder="Correo electrónico"
+                     formControlName="email"
+              >
+            </div>
+            <div class="form-control-feedback" *ngIf="f.email.errors?.required && f.email.touched">
+              Campo requerido
+            </div>
+            <div class="form-control-feedback" *ngIf="f.email.errors?.email && f.email.touched">
+              Ingresa un correo electrónico valido
+            </div>
+          </div>
+          <div class="form-group has-danger">
+            <div class="col-xs-12">
+              <input class="form-control"
+                     type="password"
+                     placeholder="Contraseña"
+                     formControlName="password"
+              >
+            </div>
+            <div class="form-control-feedback" *ngIf="f.password.errors?.required && f.password.touched">
+              Campo requerido
+            </div>
+          </div>
+          <div class="form-group has-danger">
+            <div class="col-xs-12">
+              <input class="form-control"
+                     type="password"
+                     placeholder="Confirma tu contraseña"
+                     formControlName="confirmpassword"
+              >
+            </div>
+            <div class="form-control-feedback" *ngIf="f.confirmpassword.errors?.required && f.confirmpassword.touched">
+              Campo requerido
+            </div>
+            <div class="form-control-feedback" *ngIf="form.errors?.mustMatch">
+              Las contraseñas deben ser iguales
+            </div>
+          </div>
+          <div class="form-group row">
+            <div class="col-md-12">
+              <div class="checkbox checkbox-success p-t-0">
+                <input id="checkbox-signup" type="checkbox"
+                       class="filled-in chk-col-light-blue"
+                       formControlName="terms"
+                >
+                <label for="checkbox-signup"> Acepto los terminos y condiciones</label>
+              </div>
+            </div>
+          </div>
+          <div class="form-group text-center p-b-20">
+            <div class="col-xs-12">
+              <button class="btn btn-info btn-lg btn-block btn-rounded text-uppercase waves-effect waves-light"
+                      type="submit"
+              >Crear cuenta
+              </button>
+            </div>
+          </div>
+          <div class="form-group m-b-0">
+            <div class="col-sm-12 text-center">
+              ¿Ya tienes una cuenta? <a routerLink="/login" class="text-info m-l-5"><b>Inicia sesión</b></a>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,47 @@
+<section id="wrapper">
+  <div class="login-register">
+    <div class="login-box card">
+      <div class="card-body">
+        <form class="form-horizontal form-material"
+              [formGroup]="loginForm"
+              (ngSubmit)="login()">
+          <h3 class="box-title m-b-20">Iniciar sesión</h3>
+          <div class="form-group has-danger">
+            <div class="col-xs-12">
+              <input class="form-control"
+                     type="text"
+                     placeholder="Usuario"
+                     formControlName="username"
+              >
+              <div class="form-control-feedback" *ngIf="f.username.errors?.required && f.username.touched">
+                Campo requerido
+              </div>
+            </div>
+          </div>
+          <div class="form-group has-danger">
+            <div class="col-xs-12">
+              <input class="form-control"
+                     type="password"
+                     placeholder="Contraseña"
+                     formControlName="password"
+              >
+              <div class="form-control-feedback" *ngIf="f.password.errors?.required && f.password.touched">
+                Campo requerido
+              </div>
+            </div>
+          </div>
+          <div class="form-group text-center">
+            <div class="col-xs-12 p-b-20">
+              <button class="btn btn-block btn-lg btn-info btn-rounded" type="submit">Iniciar sesión</button>
+            </div>
+          </div>
+          <div class="form-group m-b-0">
+            <div class="col-sm-12 text-center">
+              ¿No tienes una cuenta? <a routerLink="/register" class="text-info m-l-5"><b>Registrate</b></a>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
